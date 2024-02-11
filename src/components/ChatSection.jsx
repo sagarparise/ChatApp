@@ -24,12 +24,13 @@ const [messages, setMessages] = useState([]);
 
   useEffect(()=>{
     const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
+      console.log(data.chatId)
            doc.exists() && setMessages(doc.data().messages)
           });
           return () => {
             unsub();
           };
-  }, [data.chatId])
+  }, [data])
 
   
 const handleSend = async()=>{

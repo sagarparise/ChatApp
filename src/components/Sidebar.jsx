@@ -24,6 +24,7 @@ function Sidebar({menu}) {
 
  useEffect(() => {
   if (currentUser && currentUser.uid) {
+   // console.log(currentUser)
     const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
       setChats(doc.data())
     });
